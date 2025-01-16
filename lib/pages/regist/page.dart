@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:fit_map/pages/regist/logic/change.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
@@ -63,8 +66,9 @@ class RegistPage extends HookWidget {
               },
             ),
             ElevatedButton(
-                onPressed: () {
-                  context.goNamed('HomePage');
+                onPressed: () async {
+                  final locate = await coordinate('大阪府大阪市北区梅田３丁目１−１');
+                  context.goNamed('HomePage', extra: locate);
                 },
                 child: const Text('始める'))
           ],

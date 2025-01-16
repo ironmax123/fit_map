@@ -3,14 +3,16 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+// ignore: must_be_immutable
 class MapPage extends HookWidget {
-  const MapPage({super.key});
+  LatLng pin;
+  MapPage({required this.pin, super.key});
 
   @override
   Widget build(BuildContext context) {
     final zoom = useState(17.5);
     final mapController = useMemoized(() => MapController());
-    final center = useState(const LatLng(34.7021294, 135.497291));
+    final center = useState(pin);
 
     return Scaffold(
       body: FlutterMap(
@@ -28,7 +30,7 @@ class MapPage extends HookWidget {
               Marker(
                 width: 30.0,
                 height: 30.0,
-                point: center.value,
+                point: pin,
                 child: const Icon(
                   Icons.location_on,
                   color: Colors.red,
