@@ -3,6 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+import 'widgets/bottomsheet.dart';
+
 // ignore: must_be_immutable
 class MapPage extends HookWidget {
   LatLng pin;
@@ -12,6 +14,8 @@ class MapPage extends HookWidget {
   Widget build(BuildContext context) {
     final zoom = useState(17.5);
     final mapController = useMemoized(() => MapController());
+    final TextEditingController kmController = TextEditingController();
+
     final center = useState(pin);
 
     return Scaffold(
@@ -72,7 +76,9 @@ class MapPage extends HookWidget {
           FloatingActionButton(
             heroTag: 'edit',
             child: const Icon(Icons.edit),
-            onPressed: () {},
+            onPressed: () {
+              showAddItemSheet(context, kmController);
+            },
           ),
         ],
       ),
