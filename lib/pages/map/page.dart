@@ -11,6 +11,7 @@ class MapPage extends HookWidget {
     final zoom = useState(17.5);
     final mapController = useMemoized(() => MapController());
     final center = useState(const LatLng(34.7021294, 135.497291));
+
     return Scaffold(
       body: FlutterMap(
         mapController: mapController,
@@ -21,6 +22,21 @@ class MapPage extends HookWidget {
         children: [
           TileLayer(
             urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          ),
+          MarkerLayer(
+            markers: [
+              Marker(
+                width: 30.0,
+                height: 30.0,
+                point: center.value,
+                child: const Icon(
+                  Icons.location_on,
+                  color: Colors.red,
+                  size: 50,
+                ),
+                rotate: true,
+              ),
+            ],
           ),
         ],
       ),
@@ -52,7 +68,7 @@ class MapPage extends HookWidget {
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
-            heroTag: 'zoomOut',
+            heroTag: 'edit',
             child: const Icon(Icons.edit),
             onPressed: () {},
           ),
