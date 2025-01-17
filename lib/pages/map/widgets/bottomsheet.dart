@@ -31,7 +31,7 @@ Future<void> showAddItemSheet(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
     builder: (context) => FractionallySizedBox(
-      heightFactor: 0.6, // 全画面の60%を使用
+      heightFactor: 0.6,
       child: sheet(kmController),
     ),
   );

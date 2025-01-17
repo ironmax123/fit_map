@@ -6,7 +6,6 @@ coordinate(String address) async {
   if (locations.isNotEmpty) {
     final location = locations.first;
     final locate = LatLng(location.latitude, location.longitude);
-    print(locate);
     return locate;
   }
 }

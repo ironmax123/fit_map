@@ -1,5 +1,4 @@
 import 'package:fit_map/navigator/router.dart';
-import 'package:fit_map/pages/regist/page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
