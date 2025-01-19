@@ -18,7 +18,14 @@ class MapPage extends HookWidget {
     final TextEditingController kmController = TextEditingController();
     final double distanceLimitKm = 300.0;
 
-    final center = useState(pin);
+    final initPin = useState(pin);
+    final center = useState<LatLng>(pin);
+    void updateCenter() {
+      // 現在のカメラの中心位置を取得
+      final currentCenter = mapController.camera.center;
+      center.value = currentCenter;
+    }
+
     final goalPoint = LatLng(34.987250, 135.759057);
     final routePoints = useState<List<LatLng>>([]); // ポリラインのポイントリスト
 
@@ -46,7 +53,7 @@ class MapPage extends HookWidget {
       body: FlutterMap(
         mapController: mapController,
         options: MapOptions(
-          initialCenter: center.value,
+          initialCenter: initPin.value,
           initialZoom: zoom.value,
         ),
         children: [
@@ -87,6 +94,7 @@ class MapPage extends HookWidget {
             heroTag: 'zoomIn',
             child: const Icon(Icons.add),
             onPressed: () {
+              updateCenter();
               zoom.value += 1.5;
               if (zoom.value >= 19.0) {
                 zoom.value = 19.0;
@@ -99,6 +107,7 @@ class MapPage extends HookWidget {
             heroTag: 'zoomOut',
             child: const Icon(Icons.remove),
             onPressed: () {
+              updateCenter();
               zoom.value -= 1.5;
               if (zoom.value <= 10.0) {
                 zoom.value = 10.0;

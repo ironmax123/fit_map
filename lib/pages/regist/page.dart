@@ -41,33 +41,27 @@ class RegistPage extends HookWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '進む方角',
+                'ゴールを設定してください',
                 style: const TextStyle(fontSize: 24),
               ),
             ),
-            const SizedBox(height: 16),
-            DropdownButtonFormField<String>(
-              value: direction.value,
-              decoration: const InputDecoration(labelText: '方角'),
-              items: const [
-                DropdownMenuItem(value: "北", child: Text("北")),
-                DropdownMenuItem(value: "東", child: Text("東")),
-                DropdownMenuItem(value: "南", child: Text("南")),
-                DropdownMenuItem(value: "西", child: Text("西")),
-              ],
-              onChanged: (String? newValue) {
-                direction.value = newValue!;
+            TextField(
+              onChanged: (value) {
+                address.value = value;
               },
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return '選択してください';
-                }
-                return null;
-              },
+              controller: addressController,
+              decoration: InputDecoration(
+                labelText: '例）京都府京都市下京区東塩小路釜殿町',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
+            const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () async {
                   final locate = await coordinate('大阪府大阪市北区梅田３丁目１−１');
+                  final locateG = await coordinate('京都府京都市下京区東塩小路釜殿町');
                   context.goNamed('HomePage', extra: locate);
                 },
                 child: const Text('始める'))
