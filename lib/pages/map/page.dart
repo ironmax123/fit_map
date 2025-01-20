@@ -13,10 +13,10 @@ class MapPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final zoom = useState(17.5);
+    final zoom = useState(9.5);
     final mapController = useMemoized(() => MapController());
     final TextEditingController kmController = TextEditingController();
-    final double distanceLimitKm = 300.0;
+    final double distanceLimitKm = 60.0;
 
     final initPin = useState(pin);
     final center = useState<LatLng>(pin);
@@ -26,7 +26,10 @@ class MapPage extends HookWidget {
       center.value = currentCenter;
     }
 
-    final goalPoint = LatLng(34.987250, 135.759057);
+    final goalPoint = LatLng(
+      35.6817698,
+      139.7636254,
+    );
     final routePoints = useState<List<LatLng>>([]); // ポリラインのポイントリスト
 
     useEffect(() {
@@ -75,6 +78,21 @@ class MapPage extends HookWidget {
               ),
             ],
           ),
+          MarkerLayer(
+            markers: [
+              Marker(
+                width: 30.0,
+                height: 30.0,
+                point: goalPoint,
+                child: const Icon(
+                  Icons.location_on,
+                  color: Colors.blue,
+                  size: 50,
+                ),
+                rotate: true,
+              ),
+            ],
+          ),
           if (routePoints.value.isNotEmpty)
             PolylineLayer(
               polylines: [
@@ -109,8 +127,8 @@ class MapPage extends HookWidget {
             onPressed: () {
               updateCenter();
               zoom.value -= 1.5;
-              if (zoom.value <= 10.0) {
-                zoom.value = 10.0;
+              if (zoom.value <= 8.0) {
+                zoom.value = 8.0;
               }
               mapController.move(center.value, zoom.value);
             },

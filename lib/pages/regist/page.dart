@@ -10,8 +10,8 @@ class RegistPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final direction = useState('北');
     final address = useState('');
+    final addressG = useState('');
     final TextEditingController addressController = TextEditingController();
     return Scaffold(
         appBar: AppBar(title: Text('登録', style: TextStyle(fontSize: 32))),
@@ -47,7 +47,7 @@ class RegistPage extends HookWidget {
             ),
             TextField(
               onChanged: (value) {
-                address.value = value;
+                addressG.value = value;
               },
               controller: addressController,
               decoration: InputDecoration(

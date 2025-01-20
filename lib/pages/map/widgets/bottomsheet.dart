@@ -16,6 +16,7 @@ Widget sheet(addressController) {
           ),
         ),
       ),
+      ElevatedButton(onPressed: () {}, child: const Text('登録'))
     ],
   );
 }
