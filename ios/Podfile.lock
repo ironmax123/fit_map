@@ -2,6 +2,8 @@ PODS:
   - Flutter (1.0.0)
   - geocoding_ios (1.0.5):
     - Flutter
+  - geolocator_apple (1.2.0):
+    - Flutter
   - image_picker_ios (0.0.1):
     - Flutter
   - package_info (0.0.1):
@@ -24,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - geocoding_ios (from `.symlinks/plugins/geocoding_ios/ios`)
+  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -37,6 +40,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   geocoding_ios:
     :path: ".symlinks/plugins/geocoding_ios/ios"
+  geolocator_apple:
+    :path: ".symlinks/plugins/geolocator_apple/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   package_info:
@@ -55,6 +60,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   geocoding_ios: bcbdaa6bddd7d3129c9bcb8acddc5d8778689768
+  geolocator_apple: 1560c3c875af2a412242c7a923e15d0d401966ff
   image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
   package_info: cce50adca9873c79f931618469d2114b91d71189
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564

@@ -1,7 +1,8 @@
+import 'package:fit_map/pages/map/view_model.dart';
 import 'package:flutter/material.dart';
 
 String distance = '';
-Widget sheet(addressController) {
+Widget sheet(addressController, ref) {
   return Column(
     children: [
       TextField(
@@ -16,7 +17,14 @@ Widget sheet(addressController) {
           ),
         ),
       ),
-      ElevatedButton(onPressed: () {}, child: const Text('登録'))
+      ElevatedButton(
+          onPressed: () async {
+            final distances = int.parse(distance);
+            await ref
+                .read(mapViewModelProvider.notifier)
+                .addMap({'dvancedDist': distances});
+          },
+          child: const Text('登録'))
     ],
   );
 }
@@ -24,6 +32,7 @@ Widget sheet(addressController) {
 Future<void> showAddItemSheet(
   BuildContext context,
   TextEditingController kmController,
+  ref,
 ) async {
   await showModalBottomSheet(
     context: context,
@@ -33,7 +42,7 @@ Future<void> showAddItemSheet(
     ),
     builder: (context) => FractionallySizedBox(
       heightFactor: 0.6,
-      child: sheet(kmController),
+      child: sheet(kmController, ref),
     ),
   );
 }

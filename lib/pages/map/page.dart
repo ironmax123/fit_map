@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:latlong2/latlong.dart';
 
 import 'logic/coordinate_calc.dart';
 import 'widgets/bottomsheet.dart';
 
 // ignore: must_be_immutable
-class MapPage extends HookWidget {
+class MapPage extends HookConsumerWidget {
   final LatLng pin; // 初期ピンの位置
   const MapPage({required this.pin, super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final zoom = useState(9.5);
     final mapController = useMemoized(() => MapController());
     final TextEditingController kmController = TextEditingController();
@@ -138,7 +139,7 @@ class MapPage extends HookWidget {
             heroTag: 'edit',
             child: const Icon(Icons.edit),
             onPressed: () {
-              showAddItemSheet(context, kmController);
+              showAddItemSheet(context, kmController, ref);
             },
           ),
         ],

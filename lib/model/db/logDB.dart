@@ -16,9 +16,8 @@ final logProvider = Provider<Future<Database>>((ref) async {
       // 初回作成時のテーブル作成処理
       await db.execute('''
         CREATE TABLE items(
-          createdAt TEXT,
-          advancedDist TEXT,                           
-          totalDist INT                               
+          dvancedDist INT,
+          createdAt TEXT                          
         )
       ''');
     },
