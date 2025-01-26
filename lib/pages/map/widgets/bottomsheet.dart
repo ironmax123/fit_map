@@ -1,3 +1,4 @@
+import 'package:fit_map/model/timestamp.dart';
 import 'package:fit_map/pages/map/view_model.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,11 @@ Widget sheet(addressController, ref) {
       ElevatedButton(
           onPressed: () async {
             final distances = int.parse(distance);
-            await ref
-                .read(mapViewModelProvider.notifier)
-                .addMap({'dvancedDist': distances});
+            final currentTime = DateTime.now();
+            await ref.read(mapViewModelProvider.notifier).addMap({
+              'dvancedDist': distances,
+              'createdAt': TimestampConverter().toJson(currentTime)
+            });
           },
           child: const Text('登録'))
     ],

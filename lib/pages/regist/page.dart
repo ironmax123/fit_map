@@ -23,7 +23,7 @@ class RegistPage extends HookConsumerWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '住所',
+                'スタート',
                 style: const TextStyle(fontSize: 24),
               ),
             ),
@@ -44,7 +44,7 @@ class RegistPage extends HookConsumerWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'ゴールを設定してください',
+                'ゴール',
                 style: const TextStyle(fontSize: 24),
               ),
             ),
