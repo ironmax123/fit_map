@@ -9,7 +9,7 @@ part 'entity.g.dart';
 @freezed
 class logEntity with _$logEntity {
   const factory logEntity({
-    required int advancedDist,
+    String? dvancedDist,
     @TimestampConverter() DateTime? createdAt,
   }) = _logEntity;
   factory logEntity.fromJson(Map<String, dynamic> json) =>

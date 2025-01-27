@@ -5,7 +5,7 @@ part 'state.freezed.dart';
 @freezed
 class ListState with _$ListState {
   const factory ListState({
-    required List<int> dvancedDist,
-    required List<DateTime?> createdAt,
+    required List<int?> dvancedDist,
+    required List<String?> createdAt,
   }) = _ListState;
 }

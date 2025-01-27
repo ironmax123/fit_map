@@ -20,7 +20,7 @@ logEntity _$logEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$logEntity {
-  int? get advancedDist => throw _privateConstructorUsedError;
+  String? get dvancedDist => throw _privateConstructorUsedError;
   @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $logEntityCopyWith<$Res> {
   factory $logEntityCopyWith(logEntity value, $Res Function(logEntity) then) =
       _$logEntityCopyWithImpl<$Res, logEntity>;
   @useResult
-  $Res call({int? advancedDist, @TimestampConverter() DateTime? createdAt});
+  $Res call({String? dvancedDist, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -57,14 +57,14 @@ class _$logEntityCopyWithImpl<$Res, $Val extends logEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? advancedDist = freezed,
+    Object? dvancedDist = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
-      advancedDist: freezed == advancedDist
-          ? _value.advancedDist
-          : advancedDist // ignore: cast_nullable_to_non_nullable
-              as int?,
+      dvancedDist: freezed == dvancedDist
+          ? _value.dvancedDist
+          : dvancedDist // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -81,7 +81,7 @@ abstract class _$$logEntityImplCopyWith<$Res>
       __$$logEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? advancedDist, @TimestampConverter() DateTime? createdAt});
+  $Res call({String? dvancedDist, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -97,14 +97,14 @@ class __$$logEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? advancedDist = freezed,
+    Object? dvancedDist = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_$logEntityImpl(
-      advancedDist: freezed == advancedDist
-          ? _value.advancedDist
-          : advancedDist // ignore: cast_nullable_to_non_nullable
-              as int?,
+      dvancedDist: freezed == dvancedDist
+          ? _value.dvancedDist
+          : dvancedDist // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -117,20 +117,20 @@ class __$$logEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$logEntityImpl implements _logEntity {
   const _$logEntityImpl(
-      {required this.advancedDist, @TimestampConverter() this.createdAt});
+      {this.dvancedDist, @TimestampConverter() this.createdAt});
 
   factory _$logEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$logEntityImplFromJson(json);
 
   @override
-  final int? advancedDist;
+  final String? dvancedDist;
   @override
   @TimestampConverter()
   final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'logEntity(advancedDist: $advancedDist, createdAt: $createdAt)';
+    return 'logEntity(dvancedDist: $dvancedDist, createdAt: $createdAt)';
   }
 
   @override
@@ -138,15 +138,15 @@ class _$logEntityImpl implements _logEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$logEntityImpl &&
-            (identical(other.advancedDist, advancedDist) ||
-                other.advancedDist == advancedDist) &&
+            (identical(other.dvancedDist, dvancedDist) ||
+                other.dvancedDist == dvancedDist) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, advancedDist, createdAt);
+  int get hashCode => Object.hash(runtimeType, dvancedDist, createdAt);
 
   /// Create a copy of logEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -166,14 +166,14 @@ class _$logEntityImpl implements _logEntity {
 
 abstract class _logEntity implements logEntity {
   const factory _logEntity(
-      {required final int? advancedDist,
+      {final String? dvancedDist,
       @TimestampConverter() final DateTime? createdAt}) = _$logEntityImpl;
 
   factory _logEntity.fromJson(Map<String, dynamic> json) =
       _$logEntityImpl.fromJson;
 
   @override
-  int? get advancedDist;
+  String? get dvancedDist;
   @override
   @TimestampConverter()
   DateTime? get createdAt;

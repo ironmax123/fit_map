@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ListState {
   List<int?> get dvancedDist => throw _privateConstructorUsedError;
-  List<DateTime?> get createdAt => throw _privateConstructorUsedError;
+  List<String?> get createdAt => throw _privateConstructorUsedError;
 
   /// Create a copy of ListState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +31,7 @@ abstract class $ListStateCopyWith<$Res> {
   factory $ListStateCopyWith(ListState value, $Res Function(ListState) then) =
       _$ListStateCopyWithImpl<$Res, ListState>;
   @useResult
-  $Res call({List<int?> dvancedDist, List<DateTime?> createdAt});
+  $Res call({List<int?> dvancedDist, List<String?> createdAt});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as List<DateTime?>,
+              as List<String?>,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$ListStateImplCopyWith<$Res>
       __$$ListStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int?> dvancedDist, List<DateTime?> createdAt});
+  $Res call({List<int?> dvancedDist, List<String?> createdAt});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value._createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as List<DateTime?>,
+              as List<String?>,
     ));
   }
 }
@@ -110,7 +110,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
 class _$ListStateImpl implements _ListState {
   const _$ListStateImpl(
       {required final List<int?> dvancedDist,
-      required final List<DateTime?> createdAt})
+      required final List<String?> createdAt})
       : _dvancedDist = dvancedDist,
         _createdAt = createdAt;
 
@@ -122,9 +122,9 @@ class _$ListStateImpl implements _ListState {
     return EqualUnmodifiableListView(_dvancedDist);
   }
 
-  final List<DateTime?> _createdAt;
+  final List<String?> _createdAt;
   @override
-  List<DateTime?> get createdAt {
+  List<String?> get createdAt {
     if (_createdAt is EqualUnmodifiableListView) return _createdAt;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_createdAt);
@@ -164,12 +164,12 @@ class _$ListStateImpl implements _ListState {
 abstract class _ListState implements ListState {
   const factory _ListState(
       {required final List<int?> dvancedDist,
-      required final List<DateTime?> createdAt}) = _$ListStateImpl;
+      required final List<String?> createdAt}) = _$ListStateImpl;
 
   @override
   List<int?> get dvancedDist;
   @override
-  List<DateTime?> get createdAt;
+  List<String?> get createdAt;
 
   /// Create a copy of ListState
   /// with the given fields replaced by the non-null parameter values.

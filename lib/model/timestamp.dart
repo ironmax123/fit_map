@@ -1,12 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-class TimestampConverter implements JsonConverter<DateTime?, int?> {
+class TimestampConverter implements JsonConverter<DateTime?, String?> {
   const TimestampConverter();
 
   @override
-  DateTime? fromJson(int? json) =>
-      json == null ? null : DateTime.fromMillisecondsSinceEpoch(json);
+  DateTime? fromJson(String? json) => json == null
+      ? null
+      : DateTime.fromMillisecondsSinceEpoch(int.parse(json));
 
   @override
-  int? toJson(DateTime? object) => object?.millisecondsSinceEpoch;
+  String? toJson(DateTime? object) => object?.millisecondsSinceEpoch.toString();
 }

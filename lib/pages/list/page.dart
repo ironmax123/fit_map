@@ -13,20 +13,27 @@ class ListPage extends HookConsumerWidget {
 
     useEffect(() {
       reload;
-      print(itemsState.toString());
       return null;
     }, [itemsState]);
     return Scaffold(
         body: Container(
       child: itemsState.when(
         data: (state) => ListView.builder(
-          itemCount: state.createdAt.length,
+          itemCount: state.dvancedDist.length,
           itemBuilder: (context, index) {
             final dist = state.dvancedDist[index];
             print('${dist}'); //ここで０が表示されるリスト内のデータの数はあってる
             return ListTile(
               title: Text('距離: $dist'),
               subtitle: Text('日時: ${state.createdAt[index]}'),
+              trailing: IconButton(
+                icon: const Icon(Icons.delete),
+                onPressed: () async {
+                  ref
+                      .read(listViewModelProvider.notifier)
+                      .delete(state.dvancedDist[index]);
+                },
+              ),
             );
           },
         ),
