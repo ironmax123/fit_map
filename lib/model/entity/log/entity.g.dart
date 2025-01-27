@@ -10,7 +10,7 @@ _$logEntityImpl _$$logEntityImplFromJson(Map<String, dynamic> json) =>
     _$logEntityImpl(
       dvancedDist: json['dvancedDist'] as String?,
       createdAt:
-          const TimestampConverter().fromJson((json['createdAt'] as String?)),
+          const TimestampConverter().fromJson(json['createdAt'] as String?),
     );
 
 Map<String, dynamic> _$$logEntityImplToJson(_$logEntityImpl instance) =>

@@ -7,8 +7,9 @@ import '../map/page.dart';
 
 // ignore: must_be_immutable
 class HomePage extends HookWidget {
-  LatLng center;
-  HomePage({required this.center, super.key});
+  final LatLng start;
+  LatLng goal;
+  HomePage({required this.start, required this.goal, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class HomePage extends HookWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            MapPage(pin: center),
+            MapPage(pin: start, goal: goal),
             const ListPage(),
           ],
         ),

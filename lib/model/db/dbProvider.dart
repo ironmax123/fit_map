@@ -16,8 +16,8 @@ final databaseProvider = Provider<Future<Database>>((ref) async {
       // 初回作成時のテーブル作成処理
       await db.execute('''
         CREATE TABLE items(
-          StartPoint LATLNG,
-          GoalPoint LATLNG,                           
+          StartPoint TEXT,
+          GoalPoint TEXT,                           
           totalDist INT                               
         )
       ''');

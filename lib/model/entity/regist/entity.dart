@@ -7,8 +7,8 @@ part 'entity.g.dart';
 @freezed
 class RegistEntity with _$RegistEntity {
   const factory RegistEntity({
-    required LatLng startPoint,
-    required LatLng goalPoint,
+    required String startPoint,
+    required String goalPoint,
     required int totalDist,
   }) = _RegistEntity;
 

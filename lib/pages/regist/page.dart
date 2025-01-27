@@ -63,16 +63,23 @@ class RegistPage extends HookConsumerWidget {
             const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () async {
-                  final locate = await coordinate('大阪府大阪市北区梅田３丁目１−１');
-                  final locateG = await coordinate('京都府京都市下京区東塩小路釜殿町');
-                  /*ref.read(registViewModelProvider.notifier).addItem(
-                        RegistEntity(
-                          startPoint: locate,
-                          goalPoint: locateG,
-                          totalDist: 0,
-                        ),
-                      );*/
-                  context.goNamed('HomePage', extra: locate);
+                  if (address.value.isEmpty || addressG.value.isEmpty) {
+                    return;
+                  } else {
+                    final locate = await coordinate(address.value);
+                    final locateG = await coordinate(
+                      address.value,
+                    );
+                    ref.read(registViewModelProvider.notifier).addItem(
+                          RegistEntity(
+                            startPoint: address.value,
+                            goalPoint: addressG.value,
+                            totalDist: 0,
+                          ),
+                        );
+                    context.goNamed('HomePage',
+                        extra: {'start': locate, 'goal': locateG});
+                  }
                 },
                 child: const Text('始める'))
           ],

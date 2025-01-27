@@ -10,7 +10,8 @@ import 'widgets/bottomsheet.dart';
 // ignore: must_be_immutable
 class MapPage extends HookConsumerWidget {
   final LatLng pin; // 初期ピンの位置
-  const MapPage({required this.pin, super.key});
+  final LatLng goal; // ゴールの位置
+  const MapPage({required this.pin, required this.goal, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,10 +28,6 @@ class MapPage extends HookConsumerWidget {
       center.value = currentCenter;
     }
 
-    final goalPoint = LatLng(
-      35.6817698,
-      139.7636254,
-    );
     final routePoints = useState<List<LatLng>>([]); // ポリラインのポイントリスト
 
     useEffect(() {
@@ -39,7 +36,7 @@ class MapPage extends HookConsumerWidget {
         try {
           final fetchedRoutePoints = await fetchRoute(
             pin,
-            goalPoint,
+            goal,
             distanceLimitKm,
             routePoints,
           );
@@ -84,7 +81,7 @@ class MapPage extends HookConsumerWidget {
               Marker(
                 width: 30.0,
                 height: 30.0,
-                point: goalPoint,
+                point: goal,
                 child: const Icon(
                   Icons.location_on,
                   color: Colors.blue,
@@ -141,6 +138,11 @@ class MapPage extends HookConsumerWidget {
             onPressed: () {
               showAddItemSheet(context, kmController, ref);
             },
+          ),
+          FloatingActionButton(
+            heroTag: 'delete',
+            child: const Icon(Icons.delete),
+            onPressed: () {},
           ),
         ],
       ),

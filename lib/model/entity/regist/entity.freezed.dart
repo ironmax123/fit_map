@@ -20,8 +20,8 @@ RegistEntity _$RegistEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RegistEntity {
-  LatLng get startPoint => throw _privateConstructorUsedError;
-  LatLng get goalPoint => throw _privateConstructorUsedError;
+  String get startPoint => throw _privateConstructorUsedError;
+  String get goalPoint => throw _privateConstructorUsedError;
   int get totalDist => throw _privateConstructorUsedError;
 
   /// Serializes this RegistEntity to a JSON map.
@@ -40,7 +40,7 @@ abstract class $RegistEntityCopyWith<$Res> {
           RegistEntity value, $Res Function(RegistEntity) then) =
       _$RegistEntityCopyWithImpl<$Res, RegistEntity>;
   @useResult
-  $Res call({LatLng startPoint, LatLng goalPoint, int totalDist});
+  $Res call({String startPoint, String goalPoint, int totalDist});
 }
 
 /// @nodoc
@@ -66,11 +66,11 @@ class _$RegistEntityCopyWithImpl<$Res, $Val extends RegistEntity>
       startPoint: null == startPoint
           ? _value.startPoint
           : startPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       goalPoint: null == goalPoint
           ? _value.goalPoint
           : goalPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       totalDist: null == totalDist
           ? _value.totalDist
           : totalDist // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$RegistEntityImplCopyWith<$Res>
       __$$RegistEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({LatLng startPoint, LatLng goalPoint, int totalDist});
+  $Res call({String startPoint, String goalPoint, int totalDist});
 }
 
 /// @nodoc
@@ -111,11 +111,11 @@ class __$$RegistEntityImplCopyWithImpl<$Res>
       startPoint: null == startPoint
           ? _value.startPoint
           : startPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       goalPoint: null == goalPoint
           ? _value.goalPoint
           : goalPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       totalDist: null == totalDist
           ? _value.totalDist
           : totalDist // ignore: cast_nullable_to_non_nullable
@@ -136,9 +136,9 @@ class _$RegistEntityImpl implements _RegistEntity {
       _$$RegistEntityImplFromJson(json);
 
   @override
-  final LatLng startPoint;
+  final String startPoint;
   @override
-  final LatLng goalPoint;
+  final String goalPoint;
   @override
   final int totalDist;
 
@@ -183,17 +183,17 @@ class _$RegistEntityImpl implements _RegistEntity {
 
 abstract class _RegistEntity implements RegistEntity {
   const factory _RegistEntity(
-      {required final LatLng startPoint,
-      required final LatLng goalPoint,
+      {required final String startPoint,
+      required final String goalPoint,
       required final int totalDist}) = _$RegistEntityImpl;
 
   factory _RegistEntity.fromJson(Map<String, dynamic> json) =
       _$RegistEntityImpl.fromJson;
 
   @override
-  LatLng get startPoint;
+  String get startPoint;
   @override
-  LatLng get goalPoint;
+  String get goalPoint;
   @override
   int get totalDist;
 

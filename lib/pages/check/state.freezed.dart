@@ -15,174 +15,149 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RegistState {
-  LatLng get startPoint => throw _privateConstructorUsedError;
-  LatLng get goalPoint => throw _privateConstructorUsedError;
-  int get totalDist => throw _privateConstructorUsedError;
+mixin _$CheckState {
+  String get startPoint => throw _privateConstructorUsedError;
+  String get goalPoint => throw _privateConstructorUsedError;
 
-  /// Create a copy of RegistState
+  /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RegistStateCopyWith<RegistState> get copyWith =>
+  $CheckStateCopyWith<CheckState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RegistStateCopyWith<$Res> {
-  factory $RegistStateCopyWith(
-          RegistState value, $Res Function(RegistState) then) =
-      _$RegistStateCopyWithImpl<$Res, RegistState>;
+abstract class $CheckStateCopyWith<$Res> {
+  factory $CheckStateCopyWith(
+          CheckState value, $Res Function(CheckState) then) =
+      _$CheckStateCopyWithImpl<$Res, CheckState>;
   @useResult
-  $Res call({LatLng startPoint, LatLng goalPoint, int totalDist});
+  $Res call({String startPoint, String goalPoint});
 }
 
 /// @nodoc
-class _$RegistStateCopyWithImpl<$Res, $Val extends RegistState>
-    implements $RegistStateCopyWith<$Res> {
-  _$RegistStateCopyWithImpl(this._value, this._then);
+class _$CheckStateCopyWithImpl<$Res, $Val extends CheckState>
+    implements $CheckStateCopyWith<$Res> {
+  _$CheckStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RegistState
+  /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? startPoint = null,
     Object? goalPoint = null,
-    Object? totalDist = null,
   }) {
     return _then(_value.copyWith(
       startPoint: null == startPoint
           ? _value.startPoint
           : startPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       goalPoint: null == goalPoint
           ? _value.goalPoint
           : goalPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
-      totalDist: null == totalDist
-          ? _value.totalDist
-          : totalDist // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$RegistStateImplCopyWith<$Res>
-    implements $RegistStateCopyWith<$Res> {
-  factory _$$RegistStateImplCopyWith(
-          _$RegistStateImpl value, $Res Function(_$RegistStateImpl) then) =
-      __$$RegistStateImplCopyWithImpl<$Res>;
+abstract class _$$CheckStateImplCopyWith<$Res>
+    implements $CheckStateCopyWith<$Res> {
+  factory _$$CheckStateImplCopyWith(
+          _$CheckStateImpl value, $Res Function(_$CheckStateImpl) then) =
+      __$$CheckStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({LatLng startPoint, LatLng goalPoint, int totalDist});
+  $Res call({String startPoint, String goalPoint});
 }
 
 /// @nodoc
-class __$$RegistStateImplCopyWithImpl<$Res>
-    extends _$RegistStateCopyWithImpl<$Res, _$RegistStateImpl>
-    implements _$$RegistStateImplCopyWith<$Res> {
-  __$$RegistStateImplCopyWithImpl(
-      _$RegistStateImpl _value, $Res Function(_$RegistStateImpl) _then)
+class __$$CheckStateImplCopyWithImpl<$Res>
+    extends _$CheckStateCopyWithImpl<$Res, _$CheckStateImpl>
+    implements _$$CheckStateImplCopyWith<$Res> {
+  __$$CheckStateImplCopyWithImpl(
+      _$CheckStateImpl _value, $Res Function(_$CheckStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RegistState
+  /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? startPoint = null,
     Object? goalPoint = null,
-    Object? totalDist = null,
   }) {
-    return _then(_$RegistStateImpl(
+    return _then(_$CheckStateImpl(
       startPoint: null == startPoint
           ? _value.startPoint
           : startPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as String,
       goalPoint: null == goalPoint
           ? _value.goalPoint
           : goalPoint // ignore: cast_nullable_to_non_nullable
-              as LatLng,
-      totalDist: null == totalDist
-          ? _value.totalDist
-          : totalDist // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$RegistStateImpl implements _RegistState {
-  const _$RegistStateImpl(
-      {this.startPoint = const LatLng(0, 0),
-      this.goalPoint = const LatLng(0, 0),
-      this.totalDist = 0});
+class _$CheckStateImpl implements _CheckState {
+  const _$CheckStateImpl({required this.startPoint, required this.goalPoint});
 
   @override
-  @JsonKey()
-  final LatLng startPoint;
+  final String startPoint;
   @override
-  @JsonKey()
-  final LatLng goalPoint;
-  @override
-  @JsonKey()
-  final int totalDist;
+  final String goalPoint;
 
   @override
   String toString() {
-    return 'RegistState(startPoint: $startPoint, goalPoint: $goalPoint, totalDist: $totalDist)';
+    return 'CheckState(startPoint: $startPoint, goalPoint: $goalPoint)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegistStateImpl &&
+            other is _$CheckStateImpl &&
             (identical(other.startPoint, startPoint) ||
                 other.startPoint == startPoint) &&
             (identical(other.goalPoint, goalPoint) ||
-                other.goalPoint == goalPoint) &&
-            (identical(other.totalDist, totalDist) ||
-                other.totalDist == totalDist));
+                other.goalPoint == goalPoint));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, startPoint, goalPoint, totalDist);
+  int get hashCode => Object.hash(runtimeType, startPoint, goalPoint);
 
-  /// Create a copy of RegistState
+  /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegistStateImplCopyWith<_$RegistStateImpl> get copyWith =>
-      __$$RegistStateImplCopyWithImpl<_$RegistStateImpl>(this, _$identity);
+  _$$CheckStateImplCopyWith<_$CheckStateImpl> get copyWith =>
+      __$$CheckStateImplCopyWithImpl<_$CheckStateImpl>(this, _$identity);
 }
 
-abstract class _RegistState implements RegistState {
-  const factory _RegistState(
-      {final LatLng startPoint,
-      final LatLng goalPoint,
-      final int totalDist}) = _$RegistStateImpl;
+abstract class _CheckState implements CheckState {
+  const factory _CheckState(
+      {required final String startPoint,
+      required final String goalPoint}) = _$CheckStateImpl;
 
   @override
-  LatLng get startPoint;
+  String get startPoint;
   @override
-  LatLng get goalPoint;
-  @override
-  int get totalDist;
+  String get goalPoint;
 
-  /// Create a copy of RegistState
+  /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegistStateImplCopyWith<_$RegistStateImpl> get copyWith =>
+  _$$CheckStateImplCopyWith<_$CheckStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

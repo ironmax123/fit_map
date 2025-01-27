@@ -8,8 +8,8 @@ part of 'entity.dart';
 
 _$RegistEntityImpl _$$RegistEntityImplFromJson(Map<String, dynamic> json) =>
     _$RegistEntityImpl(
-      startPoint: LatLng.fromJson(json['startPoint'] as Map<String, dynamic>),
-      goalPoint: LatLng.fromJson(json['goalPoint'] as Map<String, dynamic>),
+      startPoint: json['startPoint'] as String,
+      goalPoint: json['goalPoint'] as String,
       totalDist: (json['totalDist'] as num).toInt(),
     );
 
