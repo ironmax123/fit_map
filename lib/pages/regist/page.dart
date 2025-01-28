@@ -80,8 +80,11 @@ class RegistPage extends HookConsumerWidget {
                             totalDist: 0.0,
                           ),
                         );
-                    context.goNamed('HomePage',
-                        extra: {'start': locate, 'goal': locateG});
+                    context.goNamed('HomePage', extra: {
+                      'start': locate,
+                      'goal': locateG,
+                      'total': 0.0
+                    });
                   }
                 },
                 child: const Text('始める'))

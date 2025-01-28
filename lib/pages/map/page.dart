@@ -1,4 +1,5 @@
 import 'package:fit_map/model/db/dbProvider.dart';
+import 'package:fit_map/pages/map/view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -12,14 +13,18 @@ import 'widgets/bottomsheet.dart';
 class MapPage extends HookConsumerWidget {
   final LatLng pin; // 初期ピンの位置
   final LatLng goal; // ゴールの位置
-  const MapPage({required this.pin, required this.goal, super.key});
+  final double distLim;
+  const MapPage(
+      {required this.pin,
+      required this.goal,
+      required this.distLim,
+      super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final zoom = useState(9.5);
     final mapController = useMemoized(() => MapController());
     final TextEditingController kmController = TextEditingController();
-    final double distanceLimitKm = 60.0;
 
     final initPin = useState(pin);
     final center = useState<LatLng>(pin);
@@ -30,6 +35,14 @@ class MapPage extends HookConsumerWidget {
     }
 
     final routePoints = useState<List<LatLng>>([]); // ポリラインのポイントリスト
+    final state = ref.watch(mapViewModelProvider).when(
+          data: (data) => data.totalDist,
+          loading: () => 0.0,
+          error: (err, stack) {
+            debugPrint('エラー: $err');
+            return 0.0;
+          },
+        );
 
     useEffect(() {
       // 非同期でルートを取得
@@ -38,7 +51,7 @@ class MapPage extends HookConsumerWidget {
           final fetchedRoutePoints = await fetchRoute(
             pin,
             goal,
-            distanceLimitKm,
+            distLim,
             routePoints,
           );
           routePoints.value = fetchedRoutePoints;
@@ -47,11 +60,11 @@ class MapPage extends HookConsumerWidget {
         }
       }
 
-      loadRoute(); // 非同期処理を実行
-      return null; // disposeは不要
+      loadRoute();
+      return null;
     }, []);
-
     return Scaffold(
+      appBar: AppBar(title: Text('移動距離：$state km')),
       body: FlutterMap(
         mapController: mapController,
         options: MapOptions(
@@ -108,45 +121,19 @@ class MapPage extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            heroTag: 'zoomIn',
-            child: const Icon(Icons.add),
-            onPressed: () {
-              updateCenter();
-              zoom.value += 1.5;
-              if (zoom.value >= 19.0) {
-                zoom.value = 19.0;
-              }
-              mapController.move(center.value, zoom.value);
-            },
-          ),
-          const SizedBox(height: 16),
-          FloatingActionButton(
-            heroTag: 'zoomOut',
-            child: const Icon(Icons.remove),
-            onPressed: () {
-              updateCenter();
-              zoom.value -= 1.5;
-              if (zoom.value <= 8.0) {
-                zoom.value = 8.0;
-              }
-              mapController.move(center.value, zoom.value);
-            },
-          ),
-          const SizedBox(height: 16),
-          FloatingActionButton(
             heroTag: 'edit',
             child: const Icon(Icons.edit),
             onPressed: () {
               showAddItemSheet(context, kmController, ref);
             },
           ),
-          FloatingActionButton(
+          /*FloatingActionButton(
             heroTag: 'delete',
             child: const Icon(Icons.delete),
             onPressed: () {
               reset(ref);
             },
-          ),
+          ),*/
         ],
       ),
     );

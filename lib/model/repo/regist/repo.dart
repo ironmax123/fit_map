@@ -15,4 +15,15 @@ class RegistRepo extends _$RegistRepo {
     final db = await this.db;
     await db.insert('items', item);
   }
+
+  void updateDist(double total) async {
+    final db = await this.db;
+    await db.update('items', {'totalDist': total});
+  }
+
+  Future<Map<String, dynamic>> getRegist() async {
+    final db = await this.db;
+    final List<Map<String, dynamic>> dbData = await db.query('items');
+    return dbData.first;
+  }
 }

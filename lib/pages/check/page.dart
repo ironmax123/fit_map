@@ -40,14 +40,21 @@ class CheckPage extends HookConsumerWidget {
                 return "エラーが発生しました";
               },
             );
-
-        print('ゴール$locateg');
+        final total = ref.watch(checkViewModelProvider).when(
+              data: (data) => data.totalDist,
+              loading: () => 0.0,
+              error: (err, stack) {
+                debugPrint('エラー: $err');
+                return "エラーが発生しました";
+              },
+            );
         try {
           final pin = await coordinate(locate.toString());
           final ping = await coordinate(locateg.toString());
           print('pin:$pin, ping:$ping');
           // ignore: use_build_context_synchronously
-          context.goNamed('HomePage', extra: {'start': pin, 'goal': ping});
+          context.goNamed('HomePage',
+              extra: {'start': pin, 'goal': ping, 'total': total});
         } catch (e) {
           debugPrint('Error: $e');
         }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 String distance = '';
-Widget sheet(addressController, ref) {
+Widget sheet(addressController, ref, context) {
   return Column(
     children: [
       TextField(
@@ -27,6 +27,9 @@ Widget sheet(addressController, ref) {
               'dvancedDist': distances,
               'createdAt': TimestampConverter().toJson(currentTime)
             });
+            await ref.read(mapViewModelProvider.notifier).updateDist(distances);
+            addressController.clear();
+            Navigator.pop(context);
           },
           child: const Text('登録'))
     ],
@@ -46,7 +49,7 @@ Future<void> showAddItemSheet(
     ),
     builder: (context) => FractionallySizedBox(
       heightFactor: 0.6,
-      child: sheet(kmController, ref),
+      child: sheet(kmController, ref, context),
     ),
   );
 }

@@ -35,11 +35,13 @@ final router = GoRouter(
         final data = state.extra as Map<String, dynamic>;
         final start = data['start']!;
         final goal = data['goal']!;
+        final total = data['total']!;
         return MaterialPage(
           key: state.pageKey,
           child: HomePage(
             start: start,
             goal: goal,
+            total: total,
           ),
         );
       },
