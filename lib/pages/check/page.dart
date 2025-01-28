@@ -7,6 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../model/db/dbProvider.dart';
 import '../regist/logic/change.dart';
 
 class CheckPage extends HookConsumerWidget {
@@ -19,28 +20,31 @@ class CheckPage extends HookConsumerWidget {
       datas.value = await check(ref);
     }
 
-    final locate = ref.watch(checkViewModelProvider).when(
-          data: (data) => data.startPoint,
-          loading: () => "0",
-          error: (err, stack) {
-            debugPrint('エラー: $err');
-            return "エラーが発生しました";
-          },
-        );
-    final locateg = ref.watch(checkViewModelProvider).when(
-          data: (data) => data.goalPoint,
-          loading: () => "0",
-          error: (err, stack) {
-            debugPrint('エラー: $err');
-            return "エラーが発生しました";
-          },
-        );
+    final road = ref.watch(checkViewModelProvider.notifier);
 
-    void loaded() async {
+    Future<void> loaded() async {
       if (isDataPresent.value) {
+        final locate = ref.watch(checkViewModelProvider).when(
+              data: (data) => data.StartPoint,
+              loading: () => "0",
+              error: (err, stack) {
+                debugPrint('エラー: $err');
+                return "エラーが発生しました";
+              },
+            );
+        final locateg = ref.watch(checkViewModelProvider).when(
+              data: (data) => data.GoalPoint,
+              loading: () => "0",
+              error: (err, stack) {
+                debugPrint('エラー: $err');
+                return "エラーが発生しました";
+              },
+            );
+
+        print('ゴール$locateg');
         try {
-          final pin = await coordinate(locate);
-          final ping = await coordinate(locateg);
+          final pin = await coordinate(locate.toString());
+          final ping = await coordinate(locateg.toString());
           print('pin:$pin, ping:$ping');
           // ignore: use_build_context_synchronously
           context.goNamed('HomePage', extra: {'start': pin, 'goal': ping});
@@ -55,6 +59,7 @@ class CheckPage extends HookConsumerWidget {
     }
 
     useEffect(() {
+      print('実行');
       getDatas().then((_) {
         if (datas.value == 'Datas') {
           isDataPresent.value = true;
@@ -62,14 +67,19 @@ class CheckPage extends HookConsumerWidget {
         loaded();
       });
       return null;
-    }, []);
+    }, [road]);
 
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: [
             Text('チェック中...'),
+            ElevatedButton(
+                onPressed: () {
+                  reset(ref);
+                },
+                child: const Text('削除'))
           ],
         ),
       ),

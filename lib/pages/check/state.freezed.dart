@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CheckState {
-  String get startPoint => throw _privateConstructorUsedError;
-  String get goalPoint => throw _privateConstructorUsedError;
+  String? get StartPoint => throw _privateConstructorUsedError;
+  String? get GoalPoint => throw _privateConstructorUsedError;
+  double get totalDist => throw _privateConstructorUsedError;
 
   /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,7 @@ abstract class $CheckStateCopyWith<$Res> {
           CheckState value, $Res Function(CheckState) then) =
       _$CheckStateCopyWithImpl<$Res, CheckState>;
   @useResult
-  $Res call({String startPoint, String goalPoint});
+  $Res call({String? StartPoint, String? GoalPoint, double totalDist});
 }
 
 /// @nodoc
@@ -50,18 +51,23 @@ class _$CheckStateCopyWithImpl<$Res, $Val extends CheckState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startPoint = null,
-    Object? goalPoint = null,
+    Object? StartPoint = freezed,
+    Object? GoalPoint = freezed,
+    Object? totalDist = null,
   }) {
     return _then(_value.copyWith(
-      startPoint: null == startPoint
-          ? _value.startPoint
-          : startPoint // ignore: cast_nullable_to_non_nullable
-              as String,
-      goalPoint: null == goalPoint
-          ? _value.goalPoint
-          : goalPoint // ignore: cast_nullable_to_non_nullable
-              as String,
+      StartPoint: freezed == StartPoint
+          ? _value.StartPoint
+          : StartPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      GoalPoint: freezed == GoalPoint
+          ? _value.GoalPoint
+          : GoalPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalDist: null == totalDist
+          ? _value.totalDist
+          : totalDist // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -74,7 +80,7 @@ abstract class _$$CheckStateImplCopyWith<$Res>
       __$$CheckStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String startPoint, String goalPoint});
+  $Res call({String? StartPoint, String? GoalPoint, double totalDist});
 }
 
 /// @nodoc
@@ -90,18 +96,23 @@ class __$$CheckStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startPoint = null,
-    Object? goalPoint = null,
+    Object? StartPoint = freezed,
+    Object? GoalPoint = freezed,
+    Object? totalDist = null,
   }) {
     return _then(_$CheckStateImpl(
-      startPoint: null == startPoint
-          ? _value.startPoint
-          : startPoint // ignore: cast_nullable_to_non_nullable
-              as String,
-      goalPoint: null == goalPoint
-          ? _value.goalPoint
-          : goalPoint // ignore: cast_nullable_to_non_nullable
-              as String,
+      StartPoint: freezed == StartPoint
+          ? _value.StartPoint
+          : StartPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      GoalPoint: freezed == GoalPoint
+          ? _value.GoalPoint
+          : GoalPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalDist: null == totalDist
+          ? _value.totalDist
+          : totalDist // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -109,16 +120,21 @@ class __$$CheckStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CheckStateImpl implements _CheckState {
-  const _$CheckStateImpl({required this.startPoint, required this.goalPoint});
+  const _$CheckStateImpl(
+      {required this.StartPoint,
+      required this.GoalPoint,
+      required this.totalDist});
 
   @override
-  final String startPoint;
+  final String? StartPoint;
   @override
-  final String goalPoint;
+  final String? GoalPoint;
+  @override
+  final double totalDist;
 
   @override
   String toString() {
-    return 'CheckState(startPoint: $startPoint, goalPoint: $goalPoint)';
+    return 'CheckState(StartPoint: $StartPoint, GoalPoint: $GoalPoint, totalDist: $totalDist)';
   }
 
   @override
@@ -126,14 +142,17 @@ class _$CheckStateImpl implements _CheckState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CheckStateImpl &&
-            (identical(other.startPoint, startPoint) ||
-                other.startPoint == startPoint) &&
-            (identical(other.goalPoint, goalPoint) ||
-                other.goalPoint == goalPoint));
+            (identical(other.StartPoint, StartPoint) ||
+                other.StartPoint == StartPoint) &&
+            (identical(other.GoalPoint, GoalPoint) ||
+                other.GoalPoint == GoalPoint) &&
+            (identical(other.totalDist, totalDist) ||
+                other.totalDist == totalDist));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, startPoint, goalPoint);
+  int get hashCode =>
+      Object.hash(runtimeType, StartPoint, GoalPoint, totalDist);
 
   /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.
@@ -146,13 +165,16 @@ class _$CheckStateImpl implements _CheckState {
 
 abstract class _CheckState implements CheckState {
   const factory _CheckState(
-      {required final String startPoint,
-      required final String goalPoint}) = _$CheckStateImpl;
+      {required final String? StartPoint,
+      required final String? GoalPoint,
+      required final double totalDist}) = _$CheckStateImpl;
 
   @override
-  String get startPoint;
+  String? get StartPoint;
   @override
-  String get goalPoint;
+  String? get GoalPoint;
+  @override
+  double get totalDist;
 
   /// Create a copy of CheckState
   /// with the given fields replaced by the non-null parameter values.

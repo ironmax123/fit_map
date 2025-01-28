@@ -12,10 +12,13 @@ class CheckViewModel extends _$CheckViewModel {
     final db = await ref.read(databaseProvider);
 
     final List<Map<String, dynamic>> dbData = await db.query('items');
+    print("data:$dbData");
     final items = dbData.map((data) => RegistEntity.fromJson(data)).toList();
 
     print('DB Data1: ${items}');
     return CheckState(
-        startPoint: items[0].startPoint, goalPoint: items[0].goalPoint);
+        StartPoint: items[0].StartPoint,
+        GoalPoint: items[0].GoalPoint,
+        totalDist: items[0].totalDist);
   }
 }

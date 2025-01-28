@@ -5,7 +5,8 @@ part 'state.freezed.dart';
 @freezed
 class CheckState with _$CheckState {
   const factory CheckState({
-    required String startPoint,
-    required String goalPoint,
+    required String? StartPoint,
+    required String? GoalPoint,
+    required double totalDist,
   }) = _CheckState;
 }

@@ -20,9 +20,9 @@ RegistEntity _$RegistEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RegistEntity {
-  String get startPoint => throw _privateConstructorUsedError;
-  String get goalPoint => throw _privateConstructorUsedError;
-  int get totalDist => throw _privateConstructorUsedError;
+  String? get StartPoint => throw _privateConstructorUsedError;
+  String? get GoalPoint => throw _privateConstructorUsedError;
+  double get totalDist => throw _privateConstructorUsedError;
 
   /// Serializes this RegistEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $RegistEntityCopyWith<$Res> {
           RegistEntity value, $Res Function(RegistEntity) then) =
       _$RegistEntityCopyWithImpl<$Res, RegistEntity>;
   @useResult
-  $Res call({String startPoint, String goalPoint, int totalDist});
+  $Res call({String? StartPoint, String? GoalPoint, double totalDist});
 }
 
 /// @nodoc
@@ -58,23 +58,23 @@ class _$RegistEntityCopyWithImpl<$Res, $Val extends RegistEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startPoint = null,
-    Object? goalPoint = null,
+    Object? StartPoint = freezed,
+    Object? GoalPoint = freezed,
     Object? totalDist = null,
   }) {
     return _then(_value.copyWith(
-      startPoint: null == startPoint
-          ? _value.startPoint
-          : startPoint // ignore: cast_nullable_to_non_nullable
-              as String,
-      goalPoint: null == goalPoint
-          ? _value.goalPoint
-          : goalPoint // ignore: cast_nullable_to_non_nullable
-              as String,
+      StartPoint: freezed == StartPoint
+          ? _value.StartPoint
+          : StartPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      GoalPoint: freezed == GoalPoint
+          ? _value.GoalPoint
+          : GoalPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
       totalDist: null == totalDist
           ? _value.totalDist
           : totalDist // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$RegistEntityImplCopyWith<$Res>
       __$$RegistEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String startPoint, String goalPoint, int totalDist});
+  $Res call({String? StartPoint, String? GoalPoint, double totalDist});
 }
 
 /// @nodoc
@@ -103,23 +103,23 @@ class __$$RegistEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startPoint = null,
-    Object? goalPoint = null,
+    Object? StartPoint = freezed,
+    Object? GoalPoint = freezed,
     Object? totalDist = null,
   }) {
     return _then(_$RegistEntityImpl(
-      startPoint: null == startPoint
-          ? _value.startPoint
-          : startPoint // ignore: cast_nullable_to_non_nullable
-              as String,
-      goalPoint: null == goalPoint
-          ? _value.goalPoint
-          : goalPoint // ignore: cast_nullable_to_non_nullable
-              as String,
+      StartPoint: freezed == StartPoint
+          ? _value.StartPoint
+          : StartPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
+      GoalPoint: freezed == GoalPoint
+          ? _value.GoalPoint
+          : GoalPoint // ignore: cast_nullable_to_non_nullable
+              as String?,
       totalDist: null == totalDist
           ? _value.totalDist
           : totalDist // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -128,23 +128,23 @@ class __$$RegistEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RegistEntityImpl implements _RegistEntity {
   const _$RegistEntityImpl(
-      {required this.startPoint,
-      required this.goalPoint,
+      {required this.StartPoint,
+      required this.GoalPoint,
       required this.totalDist});
 
   factory _$RegistEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegistEntityImplFromJson(json);
 
   @override
-  final String startPoint;
+  final String? StartPoint;
   @override
-  final String goalPoint;
+  final String? GoalPoint;
   @override
-  final int totalDist;
+  final double totalDist;
 
   @override
   String toString() {
-    return 'RegistEntity(startPoint: $startPoint, goalPoint: $goalPoint, totalDist: $totalDist)';
+    return 'RegistEntity(StartPoint: $StartPoint, GoalPoint: $GoalPoint, totalDist: $totalDist)';
   }
 
   @override
@@ -152,10 +152,10 @@ class _$RegistEntityImpl implements _RegistEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegistEntityImpl &&
-            (identical(other.startPoint, startPoint) ||
-                other.startPoint == startPoint) &&
-            (identical(other.goalPoint, goalPoint) ||
-                other.goalPoint == goalPoint) &&
+            (identical(other.StartPoint, StartPoint) ||
+                other.StartPoint == StartPoint) &&
+            (identical(other.GoalPoint, GoalPoint) ||
+                other.GoalPoint == GoalPoint) &&
             (identical(other.totalDist, totalDist) ||
                 other.totalDist == totalDist));
   }
@@ -163,7 +163,7 @@ class _$RegistEntityImpl implements _RegistEntity {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, startPoint, goalPoint, totalDist);
+      Object.hash(runtimeType, StartPoint, GoalPoint, totalDist);
 
   /// Create a copy of RegistEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -183,19 +183,19 @@ class _$RegistEntityImpl implements _RegistEntity {
 
 abstract class _RegistEntity implements RegistEntity {
   const factory _RegistEntity(
-      {required final String startPoint,
-      required final String goalPoint,
-      required final int totalDist}) = _$RegistEntityImpl;
+      {required final String? StartPoint,
+      required final String? GoalPoint,
+      required final double totalDist}) = _$RegistEntityImpl;
 
   factory _RegistEntity.fromJson(Map<String, dynamic> json) =
       _$RegistEntityImpl.fromJson;
 
   @override
-  String get startPoint;
+  String? get StartPoint;
   @override
-  String get goalPoint;
+  String? get GoalPoint;
   @override
-  int get totalDist;
+  double get totalDist;
 
   /// Create a copy of RegistEntity
   /// with the given fields replaced by the non-null parameter values.

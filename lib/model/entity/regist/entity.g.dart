@@ -8,14 +8,14 @@ part of 'entity.dart';
 
 _$RegistEntityImpl _$$RegistEntityImplFromJson(Map<String, dynamic> json) =>
     _$RegistEntityImpl(
-      startPoint: json['startPoint'] as String,
-      goalPoint: json['goalPoint'] as String,
-      totalDist: (json['totalDist'] as num).toInt(),
+      StartPoint: json['StartPoint'] as String?,
+      GoalPoint: json['GoalPoint'] as String?,
+      totalDist: (json['totalDist'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$RegistEntityImplToJson(_$RegistEntityImpl instance) =>
     <String, dynamic>{
-      'startPoint': instance.startPoint,
-      'goalPoint': instance.goalPoint,
+      'StartPoint': instance.StartPoint,
+      'GoalPoint': instance.GoalPoint,
       'totalDist': instance.totalDist,
     };

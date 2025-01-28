@@ -18,10 +18,14 @@ final databaseProvider = Provider<Future<Database>>((ref) async {
         CREATE TABLE items(
           StartPoint TEXT,
           GoalPoint TEXT,                           
-          totalDist INT                               
+          totalDist DOUBLE,                               
         )
       ''');
     },
   );
 });
+void reset(ref) {
+  ref.read(databaseProvider).then((db) => db.delete('items'));
+}
+
 final navigationIndexProvider = StateProvider<int>((ref) => 0);

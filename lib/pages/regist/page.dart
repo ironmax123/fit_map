@@ -15,7 +15,9 @@ class RegistPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final address = useState('');
     final addressG = useState('');
-    final TextEditingController addressController = TextEditingController();
+    final TextEditingController addressController = useTextEditingController();
+    final TextEditingController addressGController = useTextEditingController();
+
     return Scaffold(
         appBar: AppBar(title: Text('登録', style: TextStyle(fontSize: 32))),
         body: Column(
@@ -52,7 +54,7 @@ class RegistPage extends HookConsumerWidget {
               onChanged: (value) {
                 addressG.value = value;
               },
-              controller: addressController,
+              controller: addressGController,
               decoration: InputDecoration(
                 labelText: '例）京都府京都市下京区東塩小路釜殿町',
                 border: OutlineInputBorder(
@@ -68,13 +70,14 @@ class RegistPage extends HookConsumerWidget {
                   } else {
                     final locate = await coordinate(address.value);
                     final locateG = await coordinate(
-                      address.value,
+                      addressG.value,
                     );
+                    print('pin:${address.value}');
                     ref.read(registViewModelProvider.notifier).addItem(
                           RegistEntity(
-                            startPoint: address.value,
-                            goalPoint: addressG.value,
-                            totalDist: 0,
+                            StartPoint: address.value,
+                            GoalPoint: addressG.value,
+                            totalDist: 0.0,
                           ),
                         );
                     context.goNamed('HomePage',

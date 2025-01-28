@@ -8,7 +8,7 @@ part of 'entity.dart';
 
 _$logEntityImpl _$$logEntityImplFromJson(Map<String, dynamic> json) =>
     _$logEntityImpl(
-      dvancedDist: json['dvancedDist'] as String?,
+      dvancedDist: (json['dvancedDist'] as num?)?.toDouble(),
       createdAt:
           const TimestampConverter().fromJson(json['createdAt'] as String?),
     );

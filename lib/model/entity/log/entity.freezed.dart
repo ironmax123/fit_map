@@ -20,7 +20,7 @@ logEntity _$logEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$logEntity {
-  String? get dvancedDist => throw _privateConstructorUsedError;
+  double? get dvancedDist => throw _privateConstructorUsedError;
   @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $logEntityCopyWith<$Res> {
   factory $logEntityCopyWith(logEntity value, $Res Function(logEntity) then) =
       _$logEntityCopyWithImpl<$Res, logEntity>;
   @useResult
-  $Res call({String? dvancedDist, @TimestampConverter() DateTime? createdAt});
+  $Res call({double? dvancedDist, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$logEntityCopyWithImpl<$Res, $Val extends logEntity>
       dvancedDist: freezed == dvancedDist
           ? _value.dvancedDist
           : dvancedDist // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -81,7 +81,7 @@ abstract class _$$logEntityImplCopyWith<$Res>
       __$$logEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? dvancedDist, @TimestampConverter() DateTime? createdAt});
+  $Res call({double? dvancedDist, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$logEntityImplCopyWithImpl<$Res>
       dvancedDist: freezed == dvancedDist
           ? _value.dvancedDist
           : dvancedDist // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ class _$logEntityImpl implements _logEntity {
       _$$logEntityImplFromJson(json);
 
   @override
-  final String? dvancedDist;
+  final double? dvancedDist;
   @override
   @TimestampConverter()
   final DateTime? createdAt;
@@ -166,14 +166,14 @@ class _$logEntityImpl implements _logEntity {
 
 abstract class _logEntity implements logEntity {
   const factory _logEntity(
-      {final String? dvancedDist,
+      {final double? dvancedDist,
       @TimestampConverter() final DateTime? createdAt}) = _$logEntityImpl;
 
   factory _logEntity.fromJson(Map<String, dynamic> json) =
       _$logEntityImpl.fromJson;
 
   @override
-  String? get dvancedDist;
+  double? get dvancedDist;
   @override
   @TimestampConverter()
   DateTime? get createdAt;

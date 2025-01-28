@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ListState {
-  List<int?> get dvancedDist => throw _privateConstructorUsedError;
+  List<double?> get dvancedDist => throw _privateConstructorUsedError;
   List<String?> get createdAt => throw _privateConstructorUsedError;
 
   /// Create a copy of ListState
@@ -31,7 +31,7 @@ abstract class $ListStateCopyWith<$Res> {
   factory $ListStateCopyWith(ListState value, $Res Function(ListState) then) =
       _$ListStateCopyWithImpl<$Res, ListState>;
   @useResult
-  $Res call({List<int?> dvancedDist, List<String?> createdAt});
+  $Res call({List<double?> dvancedDist, List<String?> createdAt});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
       dvancedDist: null == dvancedDist
           ? _value.dvancedDist
           : dvancedDist // ignore: cast_nullable_to_non_nullable
-              as List<int?>,
+              as List<double?>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -73,7 +73,7 @@ abstract class _$$ListStateImplCopyWith<$Res>
       __$$ListStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int?> dvancedDist, List<String?> createdAt});
+  $Res call({List<double?> dvancedDist, List<String?> createdAt});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
       dvancedDist: null == dvancedDist
           ? _value._dvancedDist
           : dvancedDist // ignore: cast_nullable_to_non_nullable
-              as List<int?>,
+              as List<double?>,
       createdAt: null == createdAt
           ? _value._createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -109,14 +109,14 @@ class __$$ListStateImplCopyWithImpl<$Res>
 
 class _$ListStateImpl implements _ListState {
   const _$ListStateImpl(
-      {required final List<int?> dvancedDist,
+      {required final List<double?> dvancedDist,
       required final List<String?> createdAt})
       : _dvancedDist = dvancedDist,
         _createdAt = createdAt;
 
-  final List<int?> _dvancedDist;
+  final List<double?> _dvancedDist;
   @override
-  List<int?> get dvancedDist {
+  List<double?> get dvancedDist {
     if (_dvancedDist is EqualUnmodifiableListView) return _dvancedDist;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_dvancedDist);
@@ -163,11 +163,11 @@ class _$ListStateImpl implements _ListState {
 
 abstract class _ListState implements ListState {
   const factory _ListState(
-      {required final List<int?> dvancedDist,
+      {required final List<double?> dvancedDist,
       required final List<String?> createdAt}) = _$ListStateImpl;
 
   @override
-  List<int?> get dvancedDist;
+  List<double?> get dvancedDist;
   @override
   List<String?> get createdAt;
 

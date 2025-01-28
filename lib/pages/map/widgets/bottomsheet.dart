@@ -1,6 +1,7 @@
 import 'package:fit_map/model/timestamp.dart';
 import 'package:fit_map/pages/map/view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 String distance = '';
 Widget sheet(addressController, ref) {
@@ -20,7 +21,7 @@ Widget sheet(addressController, ref) {
       ),
       ElevatedButton(
           onPressed: () async {
-            final distances = int.parse(distance);
+            final distances = double.parse(distance);
             final currentTime = DateTime.now();
             await ref.read(mapViewModelProvider.notifier).addMap({
               'dvancedDist': distances,
@@ -35,7 +36,7 @@ Widget sheet(addressController, ref) {
 Future<void> showAddItemSheet(
   BuildContext context,
   TextEditingController kmController,
-  ref,
+  WidgetRef ref,
 ) async {
   await showModalBottomSheet(
     context: context,

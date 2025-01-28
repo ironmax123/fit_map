@@ -21,8 +21,7 @@ class ListViewModel extends _$ListViewModel {
     }
     final items = dbData.map((data) => logEntity.fromJson(data)).toList();
 
-    final dists =
-        items.map((item) => int.tryParse(item.dvancedDist ?? '0')).toList();
+    final dists = items.map((item) => item.dvancedDist).toList();
     final createdAts = items.map((item) {
       final dateTime = item.createdAt ?? DateTime.now();
       return DateFormat('yyyy/MM/dd HH:mm').format(dateTime);
@@ -36,8 +35,7 @@ class ListViewModel extends _$ListViewModel {
 
     final List<Map<String, dynamic>> dbData = await db.query('items');
     final items = dbData.map((data) => logEntity.fromJson(data)).toList();
-    final dists =
-        items.map((item) => int.tryParse(item.dvancedDist ?? '0')).toList();
+    final dists = items.map((item) => item.dvancedDist).toList();
     final createdAts = items.map((item) {
       final dateTime = item.createdAt ?? DateTime.now();
       return DateFormat('yyyy/MM/dd HH:mm').format(dateTime);
@@ -46,7 +44,7 @@ class ListViewModel extends _$ListViewModel {
         AsyncValue.data(ListState(dvancedDist: dists, createdAt: createdAts));
   }
 
-  void delete(int? dist) {
+  void delete(double? dist) {
     final db = ref.read(logProvider);
     db.then((value) =>
         value.delete('items', where: 'dvancedDist = ?', whereArgs: [dist]));
