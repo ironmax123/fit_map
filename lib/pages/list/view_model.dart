@@ -13,12 +13,6 @@ class ListViewModel extends _$ListViewModel {
     final db = await ref.read(logProvider);
 
     final List<Map<String, dynamic>> dbData = await db.query('items');
-    try {
-      final items1 = dbData.map((data) => logEntity.fromJson(data)).toList();
-      print(items1);
-    } catch (e) {
-      print(e);
-    }
     final items = dbData.map((data) => logEntity.fromJson(data)).toList();
 
     final dists = items.map((item) => item.dvancedDist).toList();
@@ -26,7 +20,6 @@ class ListViewModel extends _$ListViewModel {
       final dateTime = item.createdAt ?? DateTime.now();
       return DateFormat('yyyy/MM/dd HH:mm').format(dateTime);
     }).toList();
-    print('DB Data1: ${items}');
     return ListState(dvancedDist: dists, createdAt: createdAts);
   }
 

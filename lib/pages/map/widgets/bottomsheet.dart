@@ -21,15 +21,21 @@ Widget sheet(addressController, ref, context) {
       ),
       ElevatedButton(
           onPressed: () async {
-            final distances = double.parse(distance);
-            final currentTime = DateTime.now();
-            await ref.read(mapViewModelProvider.notifier).addMap({
-              'dvancedDist': distances,
-              'createdAt': TimestampConverter().toJson(currentTime)
-            });
-            await ref.read(mapViewModelProvider.notifier).updateDist(distances);
-            addressController.clear();
-            Navigator.pop(context);
+            if (addressController.text.isEmpty) {
+              return Navigator.pop(context);
+            } else {
+              final distances = double.parse(distance);
+              final currentTime = DateTime.now();
+              await ref.read(mapViewModelProvider.notifier).addMap({
+                'dvancedDist': distances,
+                'createdAt': TimestampConverter().toJson(currentTime)
+              });
+              await ref
+                  .read(mapViewModelProvider.notifier)
+                  .updateDist(distances);
+              addressController.clear();
+              Navigator.pop(context);
+            }
           },
           child: const Text('登録'))
     ],

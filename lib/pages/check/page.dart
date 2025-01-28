@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../model/db/dbProvider.dart';
 import '../regist/logic/change.dart';
 
 class CheckPage extends HookConsumerWidget {
@@ -66,7 +64,6 @@ class CheckPage extends HookConsumerWidget {
     }
 
     useEffect(() {
-      print('実行');
       getDatas().then((_) {
         if (datas.value == 'Datas') {
           isDataPresent.value = true;
@@ -82,11 +79,6 @@ class CheckPage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('チェック中...'),
-            ElevatedButton(
-                onPressed: () {
-                  reset(ref);
-                },
-                child: const Text('削除'))
           ],
         ),
       ),
