@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class drawer extends HookConsumerWidget {
-  const drawer({super.key});
+class EndDrawer extends HookConsumerWidget {
+  const EndDrawer({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -12,7 +12,10 @@ class drawer extends HookConsumerWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 64,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

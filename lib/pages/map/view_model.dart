@@ -31,6 +31,9 @@ class MapViewModel extends _$MapViewModel {
     final items = dbData.map((data) => RegistEntity.fromJson(data)).toList();
     final dists = items.map((item) => item.totalDist).toList();
     final newdist = dists.first + total;
+    print(newdist);
     dbRepo.updateDist(newdist);
+
+    state = AsyncValue.data(state.value!.copyWith(totalDist: newdist));
   }
 }

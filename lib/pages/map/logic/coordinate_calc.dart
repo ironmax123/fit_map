@@ -4,7 +4,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<List<LatLng>> fetchRoute(
-    startPoint, goalPoint, distanceLimitKm, routePoints) async {
+  startPoint,
+  goalPoint,
+  distanceLimitKm,
+  context,
+) async {
   final url =
       "http://router.project-osrm.org/route/v1/driving/${startPoint.longitude},${startPoint.latitude};${goalPoint.longitude},${goalPoint.latitude}?geometries=geojson";
 
@@ -20,7 +24,7 @@ Future<List<LatLng>> fetchRoute(
     final allRoutePoints =
         coordinates.map((coord) => LatLng(coord[1], coord[0])).toList();
 
-    // 2km 分の経路を切り取る
+    // [distanceLimitKm]分の経路を切り取る
     final trimmedRoutePoints = trimRoute(allRoutePoints, distanceLimitKm);
 
     return trimmedRoutePoints; // 修正：List<LatLng> を返す

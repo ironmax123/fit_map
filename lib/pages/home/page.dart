@@ -23,7 +23,7 @@ class HomePage extends HookConsumerWidget {
     return DefaultTabController(
       length: 2, // タブの数
       child: Scaffold(
-        endDrawer: const drawer(),
+        endDrawer: const EndDrawer(),
         appBar: AppBar(
           bottom: const TabBar(
             tabs: [

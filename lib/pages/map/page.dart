@@ -27,6 +27,7 @@ class MapPage extends HookConsumerWidget {
 
     final initPin = useState(pin);
     final center = useState<LatLng>(pin);
+    // ignore: unused_element
     void updateCenter() {
       // 現在のカメラの中心位置を取得
       final currentCenter = mapController.camera.center;
@@ -50,8 +51,8 @@ class MapPage extends HookConsumerWidget {
           final fetchedRoutePoints = await fetchRoute(
             pin,
             goal,
-            distLim,
-            routePoints,
+            state,
+            context,
           );
           routePoints.value = fetchedRoutePoints;
         } catch (e) {
@@ -59,9 +60,11 @@ class MapPage extends HookConsumerWidget {
         }
       }
 
+      print('距離：$state');
+
       loadRoute();
       return null;
-    }, []);
+    }, [state]);
     return Scaffold(
       appBar: AppBar(title: Text('移動距離：$state km')),
       body: FlutterMap(
@@ -124,6 +127,26 @@ class MapPage extends HookConsumerWidget {
             child: const Icon(Icons.edit),
             onPressed: () {
               showAddItemSheet(context, kmController, ref);
+            },
+          ),
+          const SizedBox(height: 20),
+          FloatingActionButton(
+            heroTag: 'plus',
+            child: const Icon(Icons.add),
+            onPressed: () {
+              zoom.value += 1;
+              mapController.move(center.value, zoom.value);
+              updateCenter();
+            },
+          ),
+          const SizedBox(height: 20),
+          FloatingActionButton(
+            heroTag: 'minus',
+            child: const Icon(Icons.minimize),
+            onPressed: () {
+              zoom.value -= 1;
+              mapController.move(center.value, zoom.value);
+              updateCenter();
             },
           ),
           /*FloatingActionButton(

@@ -18,7 +18,7 @@ final databaseProvider = Provider<Future<Database>>((ref) async {
         CREATE TABLE items(
           StartPoint TEXT,
           GoalPoint TEXT,                           
-          totalDist DOUBLE,                               
+          totalDist DOUBLE                              
         )
       ''');
     },
