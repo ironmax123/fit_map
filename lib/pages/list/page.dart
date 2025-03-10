@@ -22,17 +22,24 @@ class ListPage extends HookConsumerWidget {
           itemCount: state.dvancedDist.length,
           itemBuilder: (context, index) {
             final dist = state.dvancedDist[index];
-            return ListTile(
-              title: Text('距離: $dist'),
-              subtitle: Text('日時: ${state.createdAt[index]}'),
-              trailing: IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: () async {
-                  ref
-                      .read(listViewModelProvider.notifier)
-                      .delete(state.dvancedDist[index]);
-                },
-              ),
+            return Column(
+              children: [
+                ListTile(
+                  title: Text('距離: $dist'),
+                  subtitle: Text('日時: ${state.createdAt[index]}'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () async {
+                      ref
+                          .read(listViewModelProvider.notifier)
+                          .delete(state.dvancedDist[index]);
+                    },
+                  ),
+                ),
+                const Divider(
+                  height: 0,
+                ),
+              ],
             );
           },
         ),

@@ -130,7 +130,9 @@ class MapPage extends HookConsumerWidget {
             },
           ),
           const SizedBox(height: 20),
-          FloatingActionButton(
+
+          /// ====以下デバッグ用===
+          /*FloatingActionButton(
             heroTag: 'plus',
             child: const Icon(Icons.add),
             onPressed: () {
@@ -148,7 +150,7 @@ class MapPage extends HookConsumerWidget {
               mapController.move(center.value, zoom.value);
               updateCenter();
             },
-          ),
+          ),*/
           /*FloatingActionButton(
             heroTag: 'delete',
             child: const Icon(Icons.delete),
